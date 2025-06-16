@@ -1,0 +1,139 @@
+<h2 mat-dialog-title *ngIf="car">Book Car - {{ car.brand }}</h2>
+<form
+  [formGroup]="bookingForm"
+  class="flex flex-col gap-[10px] items-center"
+  (ngSubmit)="onSubmit()"
+>
+  <mat-dialog-content class="mat-typography">
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="user@example.com" formControlName="email" />
+      <mat-error
+        *ngIf="
+          bookingForm.invalid &&
+          bookingForm.touched &&
+          bookingForm.get('email')?.errors
+        "
+        >{{
+          bookingForm.get("email")?.errors?.required
+            ? "This field is required."
+            : "Email is not valid"
+        }}</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Enter your name</mat-label>
+      <input matInput placeholder="viethoang" formControlName="name" />
+      <mat-error
+        *ngIf="
+          bookingForm.invalid &&
+          bookingForm.touched &&
+          bookingForm.get('name')?.errors
+        "
+        >{{
+          bookingForm.get("name")?.errors?.required
+            ? "This field is required."
+            : ""
+        }}</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Enter your phone</mat-label>
+      <input matInput placeholder="xxx-xxxx-xxxx" formControlName="phone" />
+      <mat-error
+        *ngIf="
+          bookingForm.invalid &&
+          bookingForm.touched &&
+          bookingForm.get('phone')?.errors
+        "
+        >{{
+          bookingForm.get("phone")?.errors?.required
+            ? "This field is required."
+            : ""
+        }}</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Enter your License Issued</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker2"
+        formControlName="drivingLicenseIssued"
+        placeholder="yyyy-mm-dd"
+      />
+
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker2"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+
+      <mat-error
+        *ngIf="
+          bookingForm.invalid &&
+          bookingForm.touched &&
+          bookingForm.get('drivingLicenseIssued')?.errors
+        "
+        >{{
+          bookingForm.get("drivingLicenseIssued")?.errors?.required
+            ? "This field is required."
+            : ""
+        }}</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Enter your License Expiry</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker1"
+        formControlName="drivingLicenseExpiry"
+        placeholder="yyyy-mm-dd"
+      />
+
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker1"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <mat-error
+        *ngIf="
+          bookingForm.invalid &&
+          bookingForm.touched &&
+          bookingForm.get('drivingLicenseExpiry')?.errors
+        "
+        >{{
+          bookingForm.get("drivingLicenseExpiry")?.errors?.required
+            ? "This field is required."
+            : ""
+        }}</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Enter your License Number</mat-label>
+      <input matInput formControlName="licenseNumber" />
+      <mat-error
+        *ngIf="
+          bookingForm.invalid &&
+          bookingForm.touched &&
+          bookingForm.get('licenseNumber')?.errors
+        "
+        >{{
+          bookingForm.get("licenseNumber")?.errors?.required
+            ? "This field is required."
+            : ""
+        }}</mat-error
+      >
+    </mat-form-field>
+
+    <!-- <mat-form-field></mat-form-field> -->
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button matButton mat-dialog-close class="mr-[10px]">Cancel</button>
+    <button matButton [disabled]="bookingForm.invalid">Book</button>
+  </mat-dialog-actions>
+</form>
