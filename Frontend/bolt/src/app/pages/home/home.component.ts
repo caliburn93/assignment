@@ -90,10 +90,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getCars(start: string, end: string) {
     this.isLoading = true;
-    this.carService.getCars(start, end).subscribe((res) => {
-      this.cars = res;
-      this.isLoading = false;
-    });
+    this.carService.getCars(start, end).subscribe(
+      (res) => {
+        this.cars = res;
+        this.isLoading = false;
+      },
+      (err) => {
+        console.log(err);
+        this.isLoading = false;
+      }
+    );
   }
 
   bookCar(car: Car) {

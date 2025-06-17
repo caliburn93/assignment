@@ -40,6 +40,8 @@ The `book` api function is following these principles same as `getCars` api:
 - **Design Patterns**:
   - **Dependency Injection**: The `car.service.ts` get `car.repository.ts` as dependencies, making it easier to test and reuseable.
 
+- **Barrel Pattern**:
+  - **Dependency Injection**: The barrel pattern is a file organization pattern that allows you to export all modules in a directory through a single file for example `routers` directory define with export all modules.
 
 ## Note:
 - Because it's a test project so I dont handle too much features for it, Just basic features based on requirement and US and focus on main request from the test description. I didn't handle the guard protection for api for check duplicate booking car base on a user name, just base on date range format and submit a simple data to get available car and book a car (but I also add validate for booking method with check lisence expired with FE code, check duplicate booking with api). I've just write some simple UT for BE apis and default generate test format for FE side. So please forgive me if you think this is too simple applications.
