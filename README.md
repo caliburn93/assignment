@@ -60,7 +60,7 @@ The `book` api function is following these principles same as `getCars` api:
 
 ### Prerequisites
 
-- **Node.js** (20 or higher)
+- **Node.js** (20 or higher) - Im using v22.
 - **MongoDB** (local or cloud instance) - Im using mongo cloud instance for this.
 
 ## Development server for Front end
@@ -78,7 +78,7 @@ npm start
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
 ```bash
-ng test
+npm run test
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
@@ -98,6 +98,7 @@ To start a local development server, run:
 ## Update env config with your enviroments -> Backend/src/shared/config/index.ts -> update envConfig
 
 ```bash
+npm i
 npm start
 ```
 ## Running unit tests
@@ -105,5 +106,5 @@ npm start
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
 ```bash
-ng test
+npm run test
 ```

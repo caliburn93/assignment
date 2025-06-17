@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     'model',
     'remainingStock',
     'averagePrice',
+    'totalPrice',
     '_id',
   ];
 
@@ -122,12 +123,24 @@ export class HomeComponent implements OnInit, OnDestroy {
     dialogRef.componentInstance.panelClosed = () => {
       this.selectedCarForBook = null;
       this.isShowBookCarPopup = false;
+      const startDate = this.dateRangeForm.value.range.start;
+      const endDate = this.dateRangeForm.value.range.end;
+      this.getCars(
+        moment(startDate).format('YYYY-MM-DD'),
+        moment(endDate).format('YYYY-MM-DD')
+      );
       dialogRef.close();
     };
 
     dialogRef.afterClosed().subscribe((result) => {
       this.selectedCarForBook = null;
       this.isShowBookCarPopup = false;
+      const startDate = this.dateRangeForm.value.range.start;
+      const endDate = this.dateRangeForm.value.range.end;
+      this.getCars(
+        moment(startDate).format('YYYY-MM-DD'),
+        moment(endDate).format('YYYY-MM-DD')
+      );
     });
   }
 
